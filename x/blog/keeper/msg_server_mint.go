@@ -11,9 +11,6 @@ import (
 func (k msgServer) Mint(goCtx context.Context, msg *types.MsgMint) (*types.MsgMintResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	// TODO: Handling the message
-	_ = ctx
-
 	amount := sdk.NewCoins(msg.Amount)
 
 	if err := k.bankKeeper.MintCoins(ctx, types.ModuleName, amount); err != nil {
